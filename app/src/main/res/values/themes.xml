@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Theme chính của app -->
+    <style name="Theme.NewVoice" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- Theme Splash dùng AndroidX SplashScreen -->
+    <style name="Theme.NewVoice.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Nền vàng -->
+        <item name="android:windowBackground">@color/yellow</item>
+        <!-- Icon/logo hiển thị giữa màn hình -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/icon</item>
+        <item name="windowSplashScreenAnimationDuration">500</item>
+        <item name="postSplashScreenTheme">@style/Theme.NewVoice</item>
+    </style>
+
+</resources>
