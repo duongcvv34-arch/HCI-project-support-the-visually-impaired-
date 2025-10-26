@@ -19,9 +19,10 @@ class HighlightOverlay(context: Context) : View(context) {
 
     fun highlight(bounds: Rect) {
         rect = bounds
-        invalidate()
+        invalidate() // vẽ khung mới
     }
 
+    // Không cần clear(), hoặc chỉ gọi khi mất focus hoàn toàn
     fun clear() {
         rect = null
         invalidate()

@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">WISE VOICE</string>
     <string name="button">Button</string>
+    <string name="home_title">TRANG CHỦ</string>
+    <string name="tts_button">ĐỌC MÀN HÌNH</string>
+    <string name="nav_button">RA LỆNH</string>
+    <string name="setting_button">CÀI ĐẶT</string>
+    <string name="help_button">TRỢ GIÚP</string>
+
     <string name="accessibility_service_description">
     Dịch vụ đọc Focus sẽ đọc to văn bản khi người dùng chọn hoặc chạm vào phần tử trên màn hình.
 </string>
     <string name="read_all_label">Đọc toàn bộ màn hình</string>
-    <string name="service_description">Dịch vụ đọc nội dung trên màn hình </string>
+    <string name="service_description">Wise voice giúp bạn đọc nội dung trên màn hình ngoài ra hỗ trợ ra lệnh cơ bản và thực hiện theo</string>
 
     <string-array name="language_options">
         <item>Tiếng Việt</item>

@@ -38,8 +38,8 @@ class FocusReadService : AccessibilityService(), TextToSpeech.OnInitListener {
             flags = AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or
                     AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS
         }
-        serviceInfo = info
 
+        serviceInfo = info
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         overlay = HighlightOverlay(this)
     }
@@ -48,8 +48,8 @@ class FocusReadService : AccessibilityService(), TextToSpeech.OnInitListener {
         if (status == TextToSpeech.SUCCESS) {
             ttsReady = true
             tts?.setLanguage(Locale("vi", "VN"))
-            tts?.setSpeechRate(1.3f) // 🔹 Tốc độ đọc nhanh hơn
-            tts?.setPitch(1.05f)     // 🔹 Giữ giọng tự nhiên, không méo
+            tts?.setSpeechRate(1.3f)
+            tts?.setPitch(1.05f)
             Log.d("FocusReadService", "TTS initialized (Fast mode)")
         } else {
             Log.e("FocusReadService", "TTS initialization failed")
@@ -64,13 +64,12 @@ class FocusReadService : AccessibilityService(), TextToSpeech.OnInitListener {
             AccessibilityEvent.TYPE_VIEW_CLICKED,
             AccessibilityEvent.TYPE_VIEW_SELECTED,
             AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED -> {
-
                 val node = event.source ?: return
                 val text = getAllText(node)
 
                 if (text.isNotBlank() && text != lastText) {
                     showHighlight(node)
-                    playFocusSound() // phát âm thanh nhẹ
+                    playFocusSound() // Phát âm thanh nhẹ
                     speakImmediately(text)
                     lastText = text
                 }
@@ -78,7 +77,7 @@ class FocusReadService : AccessibilityService(), TextToSpeech.OnInitListener {
         }
     }
 
-    /** Phát âm thanh focus nhẹ song song với TTS **/
+    /** Phát âm thanh focus song song với TTS **/
     private fun playFocusSound() {
         try {
             mediaPlayer?.release()
@@ -107,11 +106,12 @@ class FocusReadService : AccessibilityService(), TextToSpeech.OnInitListener {
         }
     }
 
-    /** Hiển thị highlight nhanh **/
+    /**  Hiển thị highlight nhanh **/
     private fun showHighlight(node: AccessibilityNodeInfo) {
         try {
             val bounds = Rect()
             node.getBoundsInScreen(bounds)
+
             handler.post {
                 overlay?.highlight(bounds)
 
@@ -137,6 +137,7 @@ class FocusReadService : AccessibilityService(), TextToSpeech.OnInitListener {
         }
     }
 
+    /** Lấy toàn bộ text trong node (bao gồm con) **/
     private fun getAllText(node: AccessibilityNodeInfo?): String {
         if (node == null) return ""
         val builder = StringBuilder()
@@ -165,7 +166,8 @@ class FocusReadService : AccessibilityService(), TextToSpeech.OnInitListener {
             tts?.stop()
             tts?.shutdown()
             overlay?.let { windowManager.removeViewImmediate(it) }
-        } catch (_: Exception) {}
+        } catch (_: Exception) {
+        }
         super.onDestroy()
     }
 }

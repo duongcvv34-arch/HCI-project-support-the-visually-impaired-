@@ -42,6 +42,11 @@
         <!-- Các Activity phụ -->
         <activity android:name=".SecondActivity" android:exported="false" />
         <activity android:name=".ReadTextActivity" android:exported="false" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".HelpActivity"/>
+
+
+
 
         <!-- Accessibility Service -->
         <service

@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         setContentView(R.layout.activity_main)
 
-        // ✅ Kiểm tra & xin quyền
+        //Kiểm tra & xin quyền
         checkAndRequestPermissions()
 
         val button4: Button = findViewById(R.id.button4)

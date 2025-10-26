@@ -47,7 +47,7 @@ public class NewVoiceAccessibilityService extends AccessibilityService {
 
     private void speak(String text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
-        // Bạn có thể gọi TextToSpeech để nói ra luôn
+
     }
 
     @Override
